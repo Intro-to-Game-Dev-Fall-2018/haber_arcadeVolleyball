@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-	public float Speed;
-	public float JumpSpeed;
+	public float Speed = 8;
+	public float JumpSpeed = 20;
 	public bool Player1;
-	public float GroundLevel;
+	public float GroundLevel = -3;
 	
 	private Rigidbody2D _rb2D;
 	private float _inputMove;

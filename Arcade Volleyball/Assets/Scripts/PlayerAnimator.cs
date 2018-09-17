@@ -16,7 +16,7 @@ public class PlayerAnimator : MonoBehaviour
 	void Start ()
 	{
 		_renderer = GetComponent<SpriteRenderer>();
-		_pc = GetComponent<PlayerController>();
+		_pc = GetComponentInParent<PlayerController>();
 	}
 	
 	private void Update()

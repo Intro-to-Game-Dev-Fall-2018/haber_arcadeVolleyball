@@ -12,7 +12,7 @@ public class MenuFunc : MonoBehaviour {
     public void Continue()
     {
         Time.timeScale = 1;
-        GameObject.Find("MenuCanvas").SetActive(false);
+        GameObject.Find("pauseMenu").SetActive(false);
     }
     
 }
