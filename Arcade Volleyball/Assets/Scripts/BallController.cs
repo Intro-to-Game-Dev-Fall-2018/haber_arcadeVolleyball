@@ -16,6 +16,7 @@ public class BallController : MonoBehaviour
 	private int _hitCount2;
 	private GameObject _lastCollision;
 	private float _ballSpeed;
+	private bool _inPlay;
 
 	private void Start ()
 	{
@@ -62,6 +63,7 @@ public class BallController : MonoBehaviour
 			_hitCount1 = 0;
 		}
 
+		_inPlay = true;
 		_lastCollision = other.gameObject;
 	}
 
@@ -72,5 +74,6 @@ public class BallController : MonoBehaviour
 		_rb2D.velocity = new Vector2(0,0);
 		_rb2D.angularVelocity = 0;
 		_ballSpeed = BallSpeed;
+		_inPlay = false;
 	}
 }
