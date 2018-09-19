@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 		_inputMove = Input.GetAxis(Player1 ? "P1Move" : "P2Move");
 		_inputJump = _rb2D.velocity.y;
 
-		if (Grounded() && Input.GetButtonDown(Player1 ? "P1Jump" : "P2Jump")) 
+		if (Input.GetButtonDown(Player1 ? "P1Jump" : "P2Jump")&&Grounded()) 
 			_inputJump = JumpSpeed;
 	}
 

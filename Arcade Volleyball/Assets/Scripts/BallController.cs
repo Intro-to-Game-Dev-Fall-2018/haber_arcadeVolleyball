@@ -67,6 +67,7 @@ public class BallController : MonoBehaviour
 
 	public void Serve(Vector3 here)
 	{
+		_hitCount1 = _hitCount2 = 0;
 		transform.position = here;
 		_rb2D.velocity = new Vector2(0,0);
 		_rb2D.angularVelocity = 0;
