@@ -7,8 +7,10 @@ public class GameFlowManager : MonoBehaviour
 {
 	public TextMeshProUGUI P1Scorecard;
 	public TextMeshProUGUI P2Scorecard;
+	public TextMeshProUGUI winText;
 	public Canvas Menu;
 	public GameObject Game;
+	public int winCondition = 11;
 
 	private int _p1Score;
 	private int _p2Score;
@@ -28,16 +30,30 @@ public class GameFlowManager : MonoBehaviour
 
 	public void P1Score()
 	{
-		_p1Score += 1;
-		UpdateScore();
-		_ball.Serve(_ball.P1.position);
+		if ((_p1Score += 1) >= winCondition)
+		{
+			_ball.Serve(new Vector3(100,100));
+			winText.text = "Player 1 wins";
+		}
+		else
+		{
+			UpdateScore();
+			_ball.Serve(_ball.P1.position);
+		}
 	}
 	
 	public void P2Score()
 	{
-		_p2Score += 1;
-		UpdateScore();
-		_ball.Serve(_ball.P2.position);
+		if ((_p2Score += 1) >= winCondition)
+		{
+			_ball.Serve(new Vector3(100,100));
+			winText.text = "Player 2 wins";
+		}
+		else
+		{
+			UpdateScore();
+			_ball.Serve(_ball.P2.position);
+		}
 	}
 
 	private void UpdateScore()
