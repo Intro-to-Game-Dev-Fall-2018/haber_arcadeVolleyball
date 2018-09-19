@@ -26,6 +26,11 @@ public class BallController : MonoBehaviour
 		Serve(P1.position);
 	}
 
+	private void Update()
+	{
+		//_rb2D.isKinematic = !_inPlay;
+	}
+
 	private void LateUpdate()
 	{
 		_rb2D.velocity = _rb2D.velocity.normalized *  _ballSpeed;
@@ -63,7 +68,7 @@ public class BallController : MonoBehaviour
 			_hitCount1 = 0;
 		}
 
-		_inPlay = true;
+		
 		_lastCollision = other.gameObject;
 	}
 
@@ -74,6 +79,5 @@ public class BallController : MonoBehaviour
 		_rb2D.velocity = new Vector2(0,0);
 		_rb2D.angularVelocity = 0;
 		_ballSpeed = BallSpeed;
-		_inPlay = false;
 	}
 }
