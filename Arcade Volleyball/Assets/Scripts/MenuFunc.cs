@@ -14,5 +14,9 @@ public class MenuFunc : MonoBehaviour {
         Time.timeScale = 1;
         GameObject.Find("pauseMenu").SetActive(false);
     }
-    
+
+    public void SwitchSkin()
+    {
+        
+    }
 }

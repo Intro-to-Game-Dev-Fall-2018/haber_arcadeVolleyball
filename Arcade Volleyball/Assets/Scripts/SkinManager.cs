@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkinManager : MonoBehaviour
 {
-	
+	[SerializeField]
 	public SpriteRenderer P1A;
 	public SpriteRenderer P1B;
 	public SpriteRenderer P2A;
@@ -14,44 +15,81 @@ public class SkinManager : MonoBehaviour
 	public SpriteRenderer Ball;
 	public TextMeshProUGUI Title;
 	public Camera SceneCamera;
+	public Text text;
 
 	public Sprite BG1; 		//retro
 	public Sprite BG2;		//simple
 	public Sprite Ball1;	//simple
 
+	private int _current;
 	private void Start()
 	{
-		regular();
+		_current = 0;
+		SwitchSkin();
 	}
 
-	private string regular()
+	public void SwitchSkin()
+	{
+		_current = (_current+=1)%4;
+		
+		// ReSharper disable once SwitchStatementMissingSomeCases
+		switch (_current)
+		{
+			case 0:  monotone();
+				break;
+			case 1: regular();
+				break;
+			case 2: purp();
+				break;
+			case 3: coldwar();
+				break;
+		}
+	}
+
+	private void regular()
 	{
 		BG.sprite = BG1;
+		BG.color = Color.white;
 		Ball.sprite = Ball1;
+		Ball.color = Color.white;
 		P1A.color = Color.green;
 		P1B.color = Color.yellow;
 		P2A.color = Color.magenta;
 		P2B.color = Color.red;
 		Title.color = Color.blue;
 		SceneCamera.backgroundColor = Color.black;
-		return "default";
+		text.text = "DEFAULT";
 	}
 
-	private string monotone()
+	private void monotone()
 	{
 		regular();
 		BG.sprite = BG2;
 		P1A.color = P1B.color = P2A.color = P2B.color = Color.white;
 		Title.color = Color.white;
-		return "mono";
+		text.text = "MONO";
 	}
 
-	private string sepia()
+	private void purp()
 	{
 		regular();
-		
-		
-		return "sepia";
+		BG.sprite = BG2;
+		BG.color = Color.black;
+		Ball.color = Color.black;
+		P1A.color = P1B.color = P2A.color = P2B.color = Color.black;
+		Title.color = Color.black;
+		SceneCamera.backgroundColor = new Color(.725f,.717f,066f);
+		text.text = "PURP";
+	}
+
+	private void coldwar()
+	{
+		P1A.color = P1B.color = Color.white;
+		P2A.color = P2B.color = Color.yellow;
+		Ball.color = Color.blue;
+		Title.color = Color.grey;
+		SceneCamera.backgroundColor = Color.red;
+		text.text = "COLD WAR";
 	}
 	
 }

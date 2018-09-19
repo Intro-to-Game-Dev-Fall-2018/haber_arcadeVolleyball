@@ -926,17 +926,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &338359153
@@ -1108,7 +1097,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: DLC
+  m_Text: SKIN
 --- !u!222 &351158411
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1128,7 +1117,7 @@ GameObject:
   - component: {fileID: 476899959}
   - component: {fileID: 476899958}
   m_Layer: 0
-  m_Name: dlc
+  m_Name: skin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1145,6 +1134,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 351158409}
+  - {fileID: 833635864}
   m_Father: {fileID: 709351866}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1191,7 +1181,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 476899959}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 833635863}
+        m_MethodName: SwitchSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &476899959
@@ -1388,6 +1389,7 @@ GameObject:
   - component: {fileID: 709351869}
   - component: {fileID: 709351868}
   - component: {fileID: 709351867}
+  - component: {fileID: 709351870}
   m_Layer: 0
   m_Name: pauseMenu
   m_TagString: Untagged
@@ -1473,6 +1475,17 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &709351870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 709351865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9c0e70a528b241f2ae83d65f8f62dfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &772948158
 GameObject:
   m_ObjectHideFlags: 0
@@ -1835,6 +1848,7 @@ MonoBehaviour:
   Ball: {fileID: 1770677032}
   Title: {fileID: 1735087031}
   SceneCamera: {fileID: 519420031}
+  text: {fileID: 351158410}
   BG1: {fileID: 21300000, guid: 88a79bfb6fd9f4d4ba71e82c2026fd39, type: 3}
   BG2: {fileID: 21300000, guid: 336c25e62f83944a48372f7308865ef6, type: 3}
   Ball1: {fileID: 21300000, guid: 15e3e9fc24be14dcc91a06dbceb6d25b, type: 3}
@@ -1845,11 +1859,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 833635862}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -372, y: -208, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 476899957}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &881553075
 GameObject:
@@ -2029,7 +2043,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1001287176
 GameObject:
