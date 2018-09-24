@@ -11,18 +11,22 @@ public class PlayerController : MonoBehaviour
 	private Rigidbody2D _rb2D;
 	private float _inputMove;
 	private float _inputJump;
+	private string _moveAxis;
+	private string _jumpAxis;
 	
 	private void Start ()
 	{
 		_rb2D = GetComponent<Rigidbody2D>();
+		_moveAxis = Player1 ? "P1Move" : "P2Move";
+		_jumpAxis = Player1 ? "P1Jump" : "P2Jump";
 	}
 
 	private void Update()
 	{	
-		_inputMove = Input.GetAxis(Player1 ? "P1Move" : "P2Move");
+		_inputMove = Input.GetAxis(_moveAxis);
 		_inputJump = _rb2D.velocity.y;
 
-		if (Input.GetButtonDown(Player1 ? "P1Jump" : "P2Jump") && Grounded()) 
+		if (Input.GetButtonDown(_jumpAxis) && Grounded()) 
 			_inputJump = JumpSpeed;
 	}
 

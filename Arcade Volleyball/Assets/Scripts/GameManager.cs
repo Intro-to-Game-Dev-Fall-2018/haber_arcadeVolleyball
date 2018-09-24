@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
 	public TextMeshProUGUI winText;
 	public Canvas Menu;
 	public Canvas instructions;
-	public GameObject Game;
 	public int winCondition = 11;
 
 	private int _p1Score;
@@ -76,10 +75,10 @@ public class GameManager : MonoBehaviour
 	
 	private void Update ()
 	{
-		if (!_gameStart&& !_ball.isMoving())
+		if (!_gameStart && !_ball.isStill())
 		{
 			_gameStart = true;
-			GameObject.Find("instructions").SetActive(false);
+			instructions.gameObject.SetActive(false);
 		}
 
 		if (!Input.GetButtonDown("Menu")) return;

@@ -32,7 +32,7 @@ public class BallController : MonoBehaviour
 		Serve(P1.position);
 	}
 
-	public bool isMoving()
+	public bool isStill()
 	{
 		return _rb2D.velocity.magnitude == 0;
 	}
@@ -40,7 +40,7 @@ public class BallController : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		if (isMoving()) return;
+		if (isStill()) return;
 		_ballSpeed += _ballAcceleration;
 		_rb2D.velocity = _rb2D.velocity.normalized *  _ballSpeed;
 		_rb2D.AddForce(new Vector2(0,_gravity));

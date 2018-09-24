@@ -5,27 +5,29 @@ public class MenuFunc : MonoBehaviour
 {
 
     private GameManager _gm;
+    private GameObject _menu;
 
     private void Start()
     {
         _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        _menu = GameObject.Find("pauseMenu");
     }
 
     public void Reset()
     {
-        Time.timeScale = 1;
+        
         _gm.ResetGame();
         CloseMenu();
     }
 
     public void Continue()
     {
-        Time.timeScale = 1;
         CloseMenu();
     }
 
-    private static void CloseMenu()
+    private void CloseMenu()
     {
-        GameObject.Find("pauseMenu").SetActive(false);
+        Time.timeScale = 1;
+       _menu.SetActive(false);
     }
 }
