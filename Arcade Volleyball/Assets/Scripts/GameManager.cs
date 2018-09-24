@@ -16,8 +16,6 @@ public class GameManager : MonoBehaviour
 	private int _p2Score;
 	private bool _gameStart;
 	private BallController _ball;
-	private PlayerController _team1;
-	private PlayerController _team2;
 	
 	private void Start ()
 	{
@@ -37,8 +35,6 @@ public class GameManager : MonoBehaviour
 	public void ResetGame()
 	{
 		Reset();
-		_team1.Reset();
-		_team2.Reset();
 		_ball.Reset();
 		
 	}
