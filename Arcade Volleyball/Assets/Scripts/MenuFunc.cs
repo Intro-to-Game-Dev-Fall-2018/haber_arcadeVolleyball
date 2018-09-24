@@ -15,7 +15,6 @@ public class MenuFunc : MonoBehaviour
 
     public void Reset()
     {
-        
         _gm.ResetGame();
         CloseMenu();
     }
@@ -27,7 +26,7 @@ public class MenuFunc : MonoBehaviour
 
     private void CloseMenu()
     {
-        Time.timeScale = 1;
+       _gm.unPause();
        _menu.SetActive(false);
     }
 }
