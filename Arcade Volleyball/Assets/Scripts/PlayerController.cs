@@ -13,26 +13,30 @@ public class PlayerController : MonoBehaviour
 	private float _inputJump;
 	private string _moveAxis;
 	private string _jumpAxis;
+	private Vector3 _defaultPosition;
 	
 	private void Start ()
 	{
 		_rb2D = GetComponent<Rigidbody2D>();
 		_moveAxis = Player1 ? "P1Move" : "P2Move";
 		_jumpAxis = Player1 ? "P1Jump" : "P2Jump";
+		_defaultPosition = transform.position;
 	}
 
-	private void Update()
-	{	
+	private void FixedUpdate()
+	{
 		_inputMove = Input.GetAxis(_moveAxis);
 		_inputJump = _rb2D.velocity.y;
 
 		if (Input.GetButtonDown(_jumpAxis) && Grounded()) 
 			_inputJump = JumpSpeed;
-	}
-
-	private void FixedUpdate()
-	{
+		
 		_rb2D.velocity = new Vector2(_inputMove * Speed, _inputJump);
+	}
+	
+	public void Reset()
+	{
+		transform.position = _defaultPosition;
 	}
 	
 	public bool Walking()
