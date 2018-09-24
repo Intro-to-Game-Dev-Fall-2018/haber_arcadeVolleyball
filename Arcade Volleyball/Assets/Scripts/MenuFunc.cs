@@ -16,17 +16,19 @@ public class MenuFunc : MonoBehaviour
     public void Reset()
     {
         _gm.ResetGame();
-        CloseMenu();
+        Continue();
     }
 
     public void Continue()
     {
-        CloseMenu();
+        _gm.unPause();
+        _menu.SetActive(false);
     }
 
-    private void CloseMenu()
+    private void Update()
     {
-       _gm.unPause();
-       _menu.SetActive(false);
+        if (Input.GetButtonDown("Menu")) Continue();
     }
+    
+
 }
