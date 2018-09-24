@@ -110,9 +110,7 @@ public class GameManager : MonoBehaviour
 		if (_effect) ScoreEffect();
 		else if (!_paused) Time.timeScale = 1;
 			
-		if (!Input.GetButtonDown("Menu")) return;
-		PauseMenu();
-
+		if (Input.GetButtonDown("Menu")) PauseMenu();
 	}
 
 }
