@@ -4,42 +4,46 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
-
+	//public variables
 	public Transform P1;
 	public Transform P2;
 	public float BallSpeed = 8;
-	public float BallAcceleration = .001f;
-	public GameFlowManager Game;
+	public GameManager Game;
 
+	//private variables
 	private Rigidbody2D _rb2D;
+	private GameObject _lastCollision;
 	private int _hitCount1;
 	private int _hitCount2;
-	private GameObject _lastCollision;
 	private float _ballSpeed;
-	private bool _inPlay;
+
+	//constants
+	private const float _gravity = -.0001f;
+	private const float _ballAcceleration = .001f;
 
 	private void Start ()
 	{
-		Game = GameObject.Find("GameFlowManager").GetComponent<GameFlowManager>();
-		_hitCount1 = _hitCount2 = 0;
 		_rb2D = GetComponent<Rigidbody2D>();
+		Reset();
+	}
+
+	public void Reset()
+	{
 		Serve(P1.position);
 	}
 
-	private void Update()
+	public bool isMoving()
 	{
-		//_rb2D.isKinematic = !_inPlay;
+		return _rb2D.velocity.magnitude == 0;
 	}
 
-	private void LateUpdate()
-	{
-		_rb2D.velocity = _rb2D.velocity.normalized *  _ballSpeed;
-	}
 
 	private void FixedUpdate()
 	{
-		if (_rb2D.velocity.magnitude==0) return;
-		_ballSpeed += BallAcceleration;
+		if (isMoving()) return;
+		_ballSpeed += _ballAcceleration;
+		_rb2D.velocity = _rb2D.velocity.normalized *  _ballSpeed;
+		_rb2D.AddForce(new Vector2(0,_gravity));
 		
 	}
 
@@ -68,7 +72,6 @@ public class BallController : MonoBehaviour
 			_hitCount1 = 0;
 		}
 
-		
 		_lastCollision = other.gameObject;
 	}
 

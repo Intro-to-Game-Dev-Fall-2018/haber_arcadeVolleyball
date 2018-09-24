@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class GameFlowManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
 	public TextMeshProUGUI P1Scorecard;
 	public TextMeshProUGUI P2Scorecard;
 	public TextMeshProUGUI winText;
 	public Canvas Menu;
+	public Canvas instructions;
 	public GameObject Game;
 	public int winCondition = 11;
 
@@ -21,12 +22,23 @@ public class GameFlowManager : MonoBehaviour
 	{
 		_ball = GameObject.Find("ball").GetComponent<BallController>();
 		Menu.gameObject.SetActive(false);
-		Game.SetActive(false);
-		_p1Score=_p2Score = 00;
-		_gameStart = false;
-		UpdateScore();
+		Reset();
 	}
 	
+	private void Reset()
+	{
+		instructions.gameObject.SetActive(true);
+		_gameStart = false;
+		_p1Score=_p2Score = 00;
+		UpdateScore();
+	}
+
+	public void ResetGame()
+	{
+		Reset();
+		_ball.Reset();
+	}
+
 
 	public void P1Score()
 	{
@@ -64,15 +76,15 @@ public class GameFlowManager : MonoBehaviour
 	
 	private void Update ()
 	{
-		if (!_gameStart&&Input.anyKey)
+		if (!_gameStart&& !_ball.isMoving())
 		{
 			_gameStart = true;
 			GameObject.Find("instructions").SetActive(false);
-			Game.SetActive(true);
 		}
 
 		if (!Input.GetButtonDown("Menu")) return;
 		Time.timeScale = 0;
 		Menu.gameObject.SetActive(true);
 	}
+
 }

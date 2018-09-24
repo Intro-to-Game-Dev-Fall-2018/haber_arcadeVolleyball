@@ -1,22 +1,31 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuFunc : MonoBehaviour {
+public class MenuFunc : MonoBehaviour
+{
+
+    private GameManager _gm;
+
+    private void Start()
+    {
+        _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
 
     public void Reset()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        _gm.ResetGame();
+        CloseMenu();
     }
 
     public void Continue()
     {
         Time.timeScale = 1;
-        GameObject.Find("pauseMenu").SetActive(false);
+        CloseMenu();
     }
 
-    public void SwitchSkin()
+    private static void CloseMenu()
     {
-        
+        GameObject.Find("pauseMenu").SetActive(false);
     }
 }
