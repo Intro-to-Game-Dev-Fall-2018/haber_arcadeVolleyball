@@ -19,7 +19,9 @@ public class SkinManager : MonoBehaviour
 
 	public Sprite BG1; 		//retro
 	public Sprite BG2;		//simple
+	public Sprite BG3;      //beach
 	public Sprite Ball1;	//simple
+	public Sprite Ball2;	//real
 
 	private int _current;
 	private void Start()
@@ -30,23 +32,25 @@ public class SkinManager : MonoBehaviour
 
 	public void SwitchSkin()
 	{
-		_current = (_current+=1)%4;
+		_current = (_current+=1)%5;
 		
 		// ReSharper disable once SwitchStatementMissingSomeCases
 		switch (_current)
 		{
-			case 0:  monotone();
+			case 0:  Monotone();
 				break;
-			case 1: regular();
+			case 1: Regular();
 				break;
-			case 2: purp();
+			case 2: Purple();
 				break;
-			case 3: coldwar();
+			case 3: ColdWar();
+				break;
+			case 4: Beach();
 				break;
 		}
 	}
 
-	private void regular()
+	private void Regular()
 	{
 		BG.sprite = BG1;
 		BG.color = Color.white;
@@ -61,18 +65,18 @@ public class SkinManager : MonoBehaviour
 		text.text = "DEFAULT";
 	}
 
-	private void monotone()
+	private void Monotone()
 	{
-		regular();
+		Regular();
 		BG.sprite = BG2;
 		P1A.color = P1B.color = P2A.color = P2B.color = Color.white;
 		Title.color = Color.white;
 		text.text = "MONO";
 	}
 
-	private void purp()
+	private void Purple()
 	{
-		regular();
+		Regular();
 		BG.sprite = BG2;
 		BG.color = Color.black;
 		Ball.color = Color.black;
@@ -82,14 +86,26 @@ public class SkinManager : MonoBehaviour
 		text.text = "PURP";
 	}
 
-	private void coldwar()
+	private void ColdWar()
 	{
+		Regular();
 		P1A.color = P1B.color = Color.white;
 		P2A.color = P2B.color = Color.yellow;
 		Ball.color = Color.blue;
 		Title.color = Color.grey;
 		SceneCamera.backgroundColor = Color.red;
 		text.text = "COLD WAR";
+	}
+
+	private void Beach()
+	{
+		Regular();
+		BG.sprite = BG3;
+		P1A.color = P1B.color = Color.red;
+		P2A.color = P2B.color = Color.blue;
+		Ball.sprite = Ball2;
+		SceneCamera.backgroundColor = new Color(0.5803f,0.9019f,1);
+		text.text = "BEACH";
 	}
 	
 }
