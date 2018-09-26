@@ -101,9 +101,10 @@ public class SkinManager : MonoBehaviour
 	{
 		Regular();
 		BG.sprite = BG3;
-		P1A.color = P1B.color = Color.red;
-		P2A.color = P2B.color = Color.blue;
+		P1A.color = P1B.color = Color.blue;
+		P2A.color = P2B.color = Color.red;
 		Ball.sprite = Ball2;
+		Title.color = Color.white;
 		SceneCamera.backgroundColor = new Color(0.5803f,0.9019f,1);
 		text.text = "BEACH";
 	}
