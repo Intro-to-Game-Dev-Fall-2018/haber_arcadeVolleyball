@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 	public TextMeshProUGUI winText;
 	public Canvas Menu;
 	public Canvas instructions;
+	[SerializeField] private AudioManager _audio;
 	
 	[Header("Settings")]
 	[SerializeField] private int winCondition = 11;
@@ -70,6 +71,7 @@ public class GameManager : MonoBehaviour
 	private void StartScoreEffect(Vector3 nextServe)
 	{
 		UpdateScore();
+		_audio.HitGround();
 		_nextServe = nextServe;
 		_effect = true;
 		Time.timeScale = 0;
@@ -88,6 +90,7 @@ public class GameManager : MonoBehaviour
 
 	private void win(string text)
 	{
+		_audio.Win();
 		StartScoreEffect(new Vector3(100,100));
 		winText.text = text;
 	}

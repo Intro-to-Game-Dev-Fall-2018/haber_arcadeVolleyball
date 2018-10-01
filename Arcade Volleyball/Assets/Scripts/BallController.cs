@@ -8,6 +8,7 @@ public class BallController : MonoBehaviour
 	public Transform P1;
 	public Transform P2;
 	public GameManager Game;
+	[SerializeField] private AudioManager _audio;
 	
 	[Header("Settings")]
 	public float BallSpeed = 8;
@@ -65,6 +66,10 @@ public class BallController : MonoBehaviour
 		{
 			Game.P1Score();
 		}
+		else if (other.gameObject.CompareTag("Bound"))
+		{
+			_audio.HitWall();
+		}
 		else if (other.gameObject == _lastCollision)
 		{
 			
@@ -73,12 +78,15 @@ public class BallController : MonoBehaviour
 		{
 			if ((_hitCount1 += 1) >= 4) Game.P2Score();
 			_hitCount2 = 0;
+			_audio.Hit();
 		}
 		else if (other.gameObject.CompareTag("Player2"))
 		{
 			if ((_hitCount2 += 1) >= 4) Game.P1Score();
 			_hitCount1 = 0;
+			_audio.Hit();
 		}
+
 
 		_lastCollision = other.gameObject;
 	}
