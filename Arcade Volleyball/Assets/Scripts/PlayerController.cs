@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-	public float Speed = 8;
-	public float JumpSpeed = 20;
-	public bool Player1;
-	public float GroundLevel = -3;
+	[Header("Settings")]
+	[SerializeField] private float Speed = 8;
+	[SerializeField] private float JumpSpeed = 20;
+	[SerializeField] private bool Player1;
+	[SerializeField] private float GroundLevel = -3;
 	
 	private Rigidbody2D _rb2D;
 	private float _inputMove;

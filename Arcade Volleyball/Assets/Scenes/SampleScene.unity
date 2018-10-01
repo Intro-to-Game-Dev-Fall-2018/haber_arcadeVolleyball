@@ -2642,8 +2642,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   P1: {fileID: 1039884308}
   P2: {fileID: 1475828995}
-  BallSpeed: 6
   Game: {fileID: 971434570}
+  BallSpeed: 6
 --- !u!1 &1840157377
 GameObject:
   m_ObjectHideFlags: 0

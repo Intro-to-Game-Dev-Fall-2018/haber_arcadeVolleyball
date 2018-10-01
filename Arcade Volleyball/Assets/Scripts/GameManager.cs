@@ -6,12 +6,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+	[Header("Menu Objects")]
 	public TextMeshProUGUI P1Scorecard;
 	public TextMeshProUGUI P2Scorecard;
 	public TextMeshProUGUI winText;
 	public Canvas Menu;
 	public Canvas instructions;
-	public int winCondition = 11;
+	
+	[Header("Settings")]
+	[SerializeField] private int winCondition = 11;
 
 	private int _p1Score;
 	private int _p2Score;

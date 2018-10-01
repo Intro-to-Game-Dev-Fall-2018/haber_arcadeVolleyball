@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SkinManager : MonoBehaviour
 {
-	[SerializeField]
+	[Header("Objects")]
 	public SpriteRenderer P1A;
 	public SpriteRenderer P1B;
 	public SpriteRenderer P2A;
@@ -17,13 +17,15 @@ public class SkinManager : MonoBehaviour
 	public Camera SceneCamera;
 	public Text text;
 
-	public Sprite BG1; 		//retro
-	public Sprite BG2;		//simple
-	public Sprite BG3;      //beach
-	public Sprite Ball1;	//simple
-	public Sprite Ball2;	//real
+	[Header("Skins")]
+	[SerializeField] private Sprite BG1; 		//retro
+	[SerializeField] private Sprite BG2;		//simple
+	[SerializeField] private Sprite BG3;      	//beach
+	[SerializeField] private Sprite Ball1;		//simple
+	[SerializeField] private Sprite Ball2;		//real
 
 	private int _current;
+	
 	private void Start()
 	{
 		_current = 0;

@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
+	[Header("Objects")]
 	public Transform P1;
 	public Transform P2;
-	public float BallSpeed = 8;
 	public GameManager Game;
-
+	
+	[Header("Settings")]
+	public float BallSpeed = 8;
+	
 	private Rigidbody2D _rb2D;
 	private GameObject _lastCollision;
 	private int _hitCount1;
