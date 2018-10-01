@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
 	private BallController _ball;
 	private bool _paused;
 	
-	//serve effect
 	private float _serveTimer;
 	private Vector3 _nextServe;
 	private bool _effect;

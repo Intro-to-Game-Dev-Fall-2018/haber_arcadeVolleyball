@@ -110,24 +110,3 @@ public class SkinManager : MonoBehaviour
 	}
 	
 }
-
-//public class Skin
-//{
-//	public string name;
-//	public Color p1a, p1b, p2a, p2b, title, bgColor;
-//	public Sprite players, background;
-//
-//	public Skin(string name, Color p1a,Color p1b, Color p2a, Color p2b,Color title, Color bgColor,
-//		Sprite players,Sprite background)
-//	{
-//		this.name = name;
-//		this.p1a = p1a;
-//		this.p1b = p1b;
-//		this.p2a = p2a;
-//		this.p2b = p2b;
-//		this.title = title;
-//		this.bgColor = bgColor;
-//		this.players = players;
-//		this.background = background;
-//	}
-//}

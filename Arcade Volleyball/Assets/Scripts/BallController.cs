@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
-	//public variables
 	public Transform P1;
 	public Transform P2;
 	public float BallSpeed = 8;
 	public GameManager Game;
 
-	//private variables
 	private Rigidbody2D _rb2D;
 	private GameObject _lastCollision;
 	private int _hitCount1;
 	private int _hitCount2;
 	private float _ballSpeed;
 
-	//constants
 	private const float _gravity = -.0001f;
 	private const float _ballAcceleration = .001f;
 
@@ -37,6 +34,14 @@ public class BallController : MonoBehaviour
 		return _rb2D.velocity.magnitude == 0;
 	}
 
+	public void Serve(Vector3 here)
+	{
+		_hitCount1 = _hitCount2 = 0;
+		transform.position = here;
+		_rb2D.velocity = new Vector2(0,0);
+		_rb2D.angularVelocity = 0;
+		_ballSpeed = BallSpeed;
+	}
 
 	private void FixedUpdate()
 	{
@@ -75,12 +80,4 @@ public class BallController : MonoBehaviour
 		_lastCollision = other.gameObject;
 	}
 
-	public void Serve(Vector3 here)
-	{
-		_hitCount1 = _hitCount2 = 0;
-		transform.position = here;
-		_rb2D.velocity = new Vector2(0,0);
-		_rb2D.angularVelocity = 0;
-		_ballSpeed = BallSpeed;
-	}
 }
