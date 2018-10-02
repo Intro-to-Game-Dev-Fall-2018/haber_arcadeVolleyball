@@ -20,7 +20,7 @@ public class BallController : MonoBehaviour
 	private float _ballSpeed;
 
 	private const float _gravity = -.0001f;
-	private const float _ballAcceleration = .001f;
+	private const float _ballAcceleration = .002f;
 
 	private void Start ()
 	{
@@ -52,6 +52,7 @@ public class BallController : MonoBehaviour
 		if (isStill()) return;
 		_ballSpeed += _ballAcceleration;
 		_rb2D.velocity = _rb2D.velocity.normalized *  _ballSpeed;
+		//_rb2D.velocity = Vector2.ClampMagnitude(_rb2D.velocity, _ballSpeed);
 		_rb2D.AddForce(new Vector2(0,_gravity));
 		
 	}
