@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
 	private void win(string text)
 	{
 		_audio.Win();
-		StartScoreEffect(new Vector3(100,100));
+		StartScoreEffect(new Vector3(0,100));
 		winText.text = text;
 	}
 
