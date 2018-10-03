@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprites: {fileID: 11400000, guid: de700c92b03684e799cab4c76f098e60, type: 2}
+  Renderer: {fileID: 212016302027760860}
 --- !u!212 &212016302027760860
 SpriteRenderer:
   m_ObjectHideFlags: 1

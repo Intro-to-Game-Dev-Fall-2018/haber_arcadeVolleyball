@@ -1,25 +1,24 @@
 ﻿using UnityEngine;
 
-
 public class PlayerAnimator : MonoBehaviour
 {
 
 	public SpriteSet Sprites;
+	[SerializeField] private SpriteRenderer Renderer;
 	
 	private PlayerMotor _motor;
-	private SpriteRenderer _renderer;
+	
 	private int _lastSpriteChange;
 	private bool _activeSprite;
 
 	private void Start ()
 	{
-		_renderer = GetComponent<SpriteRenderer>();
 		_motor = GetComponentInParent<PlayerMotor>();
 	}
 	
 	public void SetColor(Color color)
 	{
-		_renderer.color = color;
+		Renderer.color = color;
 	}
 	
 	private void Update()
@@ -30,7 +29,7 @@ public class PlayerAnimator : MonoBehaviour
 			_activeSprite = !_activeSprite;
 		}
 
-		if (!_motor.Grounded()) _renderer.sprite = Sprites.JumpSprite;
-		else _renderer.sprite = _activeSprite ? Sprites.GroundSprite1 : Sprites.GroundSprite2;
+		if (!_motor.Grounded()) Renderer.sprite = Sprites.JumpSprite;
+		else Renderer.sprite = _activeSprite ? Sprites.GroundSprite1 : Sprites.GroundSprite2;
 	}
 }

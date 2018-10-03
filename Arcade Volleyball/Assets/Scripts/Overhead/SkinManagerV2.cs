@@ -24,6 +24,8 @@ public class SkinManagerV2 : MonoBehaviour
 
 	private int _current;
 	
+	
+	
 	private void Start()
 	{
 		_current = 0;
