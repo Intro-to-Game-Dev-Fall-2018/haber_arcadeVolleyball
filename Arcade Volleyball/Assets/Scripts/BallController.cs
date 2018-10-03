@@ -45,9 +45,7 @@ public class BallController : MonoBehaviour
 	{
 		if (isStill()) return;
 		_ballSpeed += Settings.s.BallAcceleration;
-		
 		_rb2D.velocity = _rb2D.velocity.normalized *  _ballSpeed;
-		//_rb2D.velocity = Vector2.ClampMagnitude(_rb2D.velocity, _ballSpeed);
 		_rb2D.AddForce(new Vector2(0,Settings.s.BallGravity));
 		
 	}
@@ -72,13 +70,13 @@ public class BallController : MonoBehaviour
 		}
 		else if (other.gameObject.CompareTag("Player1"))
 		{
-			if ((_hitCount1 += 1) >= 4) Game.P2Score();
+			if ((_hitCount1 += 1) >= Settings.s.MaxTouches) Game.P2Score();
 			_hitCount2 = 0;
 			_audio.Hit();
 		}
 		else if (other.gameObject.CompareTag("Player2"))
 		{
-			if ((_hitCount2 += 1) >= 4) Game.P1Score();
+			if ((_hitCount2 += 1) >= Settings.s.MaxTouches) Game.P1Score();
 			_hitCount1 = 0;
 			_audio.Hit();
 		}

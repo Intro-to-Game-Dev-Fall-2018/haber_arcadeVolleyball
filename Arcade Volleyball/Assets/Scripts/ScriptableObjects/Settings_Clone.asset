@@ -9,11 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fe6ac5d96c4d4fefaf7b79b0150880a, type: 3}
-  m_Name: MyMode
+  m_Name: Settings_Clone
   m_EditorClassIdentifier: 
-  WinScore: 5
-  BallSpeed: 7
-  BallGravity: -0.0005
+  WinScore: 11
+  MaxTouches: 4
+  BallSpeed: 8
+  BallGravity: -0.0001
   BallAcceleration: 0.001
   PlayerSpeed: 8
   PlayerJumpSpeed: 20

@@ -8,6 +8,7 @@ public class GameSettings : ScriptableObject
 	
 	[Header("Game Settings")]
 	public int WinScore;
+	public int MaxTouches;
 
 	[Header("Ball Settings")] 
 	public float BallSpeed = 8;

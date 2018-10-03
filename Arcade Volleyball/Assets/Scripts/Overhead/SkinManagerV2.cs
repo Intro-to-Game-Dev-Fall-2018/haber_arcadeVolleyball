@@ -51,20 +51,4 @@ public class SkinManagerV2 : MonoBehaviour
 		SceneCamera.backgroundColor = skin.BackgroundColor;
 		text.text = skin.Name.ToUpper();
 	}
-//
-//	private void Regular()
-//	{
-//		BG.sprite = BG1;
-//		BG.color = Color.white;
-//		Ball.sprite = Ball1;
-//		Ball.color = Color.white;
-//		P1A.color = Color.green;
-//		P1B.color = Color.yellow;
-//		P2A.color = Color.magenta;
-//		P2B.color = Color.red;
-//		Title.color = Color.blue;
-//		SceneCamera.backgroundColor = Color.black;
-//		text.text = "DEFAULT";
-//	}
-
 }
