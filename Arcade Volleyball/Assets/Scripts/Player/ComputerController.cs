@@ -1,16 +1,26 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComputerController : MonoBehaviour {
+public class ComputerController : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-		
+	[SerializeField] private Rigidbody2D _ball;
+	
+	private PlayerMotor _motor;
+	private float _direction;
+	
+	private void Start () {
+		_motor = GetComponent<PlayerMotor>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	private void Update ()
+	{
+		if (_ball.position.x < 0) return;
+		_direction = Mathf.Clamp(_ball.position.x - transform.position.x,-1f,1f);
 		
+		if (_ball.position.y <= -1.4f) _motor.Jump();
+		_motor.Move(_direction);
 	}
 }

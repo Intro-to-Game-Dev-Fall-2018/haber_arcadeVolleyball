@@ -1060,6 +1060,7 @@ GameObject:
   m_Component:
   - component: {fileID: 537187069}
   - component: {fileID: 537187070}
+  - component: {fileID: 537187073}
   - component: {fileID: 537187072}
   - component: {fileID: 537187071}
   m_Layer: 0
@@ -1090,7 +1091,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 537187068}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0992ed61107074ed7bbfb002ea391c3b, type: 3}
   m_Name: 
@@ -1127,6 +1128,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f45e4c2c52cf4943979e27b59256909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &537187073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 537187068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f4eed3c481704d8cb65e275fe9523d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ball: {fileID: 1770677030}
 --- !u!212 &549645098 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 212016302027760860, guid: d84c6c427f6574c93bc1ba2777aebe38,
