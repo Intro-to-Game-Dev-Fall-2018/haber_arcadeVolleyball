@@ -1591,7 +1591,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 833635862}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b00f6e50499554cd5a413b99ff0d55e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e34596d49c8f46cfb6b8ce3584aa272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   P1A: {fileID: 1139419179}
@@ -1601,13 +1601,13 @@ MonoBehaviour:
   BG: {fileID: 61296786}
   Ball: {fileID: 1770677032}
   Title: {fileID: 1735087031}
+  P1Score: {fileID: 1886880549}
+  P2Score: {fileID: 329632812}
   SceneCamera: {fileID: 519420031}
   text: {fileID: 351158410}
-  BG1: {fileID: 21300000, guid: 88a79bfb6fd9f4d4ba71e82c2026fd39, type: 3}
-  BG2: {fileID: 21300000, guid: 336c25e62f83944a48372f7308865ef6, type: 3}
-  BG3: {fileID: 21300000, guid: 9d130e5d42c644f4c952f1bdda887f8f, type: 3}
-  Ball1: {fileID: 21300000, guid: 7364538ac220b400ebe033c0d3440b94, type: 3}
-  Ball2: {fileID: 21300000, guid: 15e3e9fc24be14dcc91a06dbceb6d25b, type: 3}
+  skins:
+  - {fileID: 11400000, guid: ee2018f00ae1b4738b56e5b8abb0633f, type: 2}
+  - {fileID: 11400000, guid: 9a5c1e586aee04dec8ab87ef3ab0d4f2, type: 2}
 --- !u!4 &833635864
 Transform:
   m_ObjectHideFlags: 0
@@ -1787,7 +1787,7 @@ MonoBehaviour:
   Menu: {fileID: 709351869}
   instructions: {fileID: 881553079}
   _audio: {fileID: 1320131859}
-  winCondition: 5
+  _ball: {fileID: 0}
 --- !u!4 &971434571
 Transform:
   m_ObjectHideFlags: 0

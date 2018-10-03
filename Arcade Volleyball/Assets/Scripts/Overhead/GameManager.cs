@@ -7,16 +7,17 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 	[Header("Menu Objects")]
-	public TextMeshProUGUI P1Scorecard;
-	public TextMeshProUGUI P2Scorecard;
-	public TextMeshProUGUI winText;
-	public Canvas Menu;
-	public Canvas instructions;
+	[SerializeField] private TextMeshProUGUI P1Scorecard;
+	[SerializeField] private TextMeshProUGUI P2Scorecard;
+	[SerializeField] private TextMeshProUGUI winText;
+	[SerializeField] private Canvas Menu;
+	[SerializeField] private Canvas instructions;
 	[SerializeField] private AudioManager _audio;
-
+	[SerializeField] private BallController _ball;
+	
 	private int _p1Score;
 	private int _p2Score;
-	private BallController _ball;
+
 	private bool _paused;
 	
 	private float _serveTimer;
