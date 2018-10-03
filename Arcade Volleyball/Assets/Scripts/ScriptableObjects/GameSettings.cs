@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu] 
+[CreateAssetMenu(menuName = "Game Settings")]
 public class GameSettings : ScriptableObject
 {
 
@@ -14,7 +14,6 @@ public class GameSettings : ScriptableObject
 	[Header("PlayerSettings")]
 	public float PlayerSpeed = 8;
 	public float PlayerJumpSpeed = 20;
-	
-	
+	public float GroundLevel = -3;
 
 }

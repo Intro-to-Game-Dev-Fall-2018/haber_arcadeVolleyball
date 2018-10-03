@@ -7,20 +7,14 @@ public class BallController : MonoBehaviour
 	[Header("Objects")]
 	public Transform P1;
 	public Transform P2;
-	public GameManager Game;
+	[SerializeField] private GameManager Game;
 	[SerializeField] private AudioManager _audio;
-	
-	[Header("Settings")]
-	public float BallSpeed = 8;
-	
+
 	private Rigidbody2D _rb2D;
 	private GameObject _lastCollision;
 	private int _hitCount1;
 	private int _hitCount2;
 	private float _ballSpeed;
-
-	private const float _gravity = -.0001f;
-	private const float _ballAcceleration = .002f;
 
 	private void Start ()
 	{
@@ -44,16 +38,17 @@ public class BallController : MonoBehaviour
 		transform.position = here;
 		_rb2D.velocity = new Vector2(0,0);
 		_rb2D.angularVelocity = 0;
-		_ballSpeed = BallSpeed;
+		_ballSpeed = Settings.s.BallSpeed;
 	}
 
 	private void FixedUpdate()
 	{
 		if (isStill()) return;
-		_ballSpeed += _ballAcceleration;
+		_ballSpeed += Settings.s.BallAcceleration;
+		
 		_rb2D.velocity = _rb2D.velocity.normalized *  _ballSpeed;
 		//_rb2D.velocity = Vector2.ClampMagnitude(_rb2D.velocity, _ballSpeed);
-		_rb2D.AddForce(new Vector2(0,_gravity));
+		_rb2D.AddForce(new Vector2(0,Settings.s.BallGravity));
 		
 	}
 
