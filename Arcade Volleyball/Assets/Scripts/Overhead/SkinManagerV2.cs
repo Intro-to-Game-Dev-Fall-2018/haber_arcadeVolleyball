@@ -7,10 +7,10 @@ using UnityEngine.UI;
 public class SkinManagerV2 : MonoBehaviour
 {
 	[Header("Objects")]
-	[SerializeField] private SpriteRenderer P1A;
-	[SerializeField] private SpriteRenderer P1B;
-	[SerializeField] private SpriteRenderer P2A;
-	[SerializeField] private SpriteRenderer P2B;
+	[SerializeField] private PlayerAnimator P1A;
+	[SerializeField] private PlayerAnimator P1B;
+	[SerializeField] private PlayerAnimator P2A;
+	[SerializeField] private PlayerAnimator P2B;
 	[SerializeField] private SpriteRenderer BG;
 	[SerializeField] private SpriteRenderer Ball;
 	[SerializeField] private TextMeshProUGUI Title;
@@ -38,11 +38,11 @@ public class SkinManagerV2 : MonoBehaviour
 	
 	private void SwitchSkin(GameSkin skin)
 	{
-		//P1A.sprite = P1B.sprite = P2A.sprite = P2B.sprite = skin.PlayerSprite;
-		P1A.color = skin.P1A;
-		P1B.color = skin.P1B;
-		P2A.color = skin.P2A;
-		P2B.color = skin.P2B;
+		P1A.Sprites = P1B.Sprites = P2A.Sprites = P2B.Sprites = skin.PlayerSprite;
+		P1A.SetColor(skin.P1A);
+		P1B.SetColor(skin.P1B);
+		P2A.SetColor(skin.P2A);
+		P2B.SetColor(skin.P2B);
 		BG.sprite = skin.BackgroundSprite;
 		Ball.sprite = skin.BallSprite;
 		Ball.color = skin.BallColor;

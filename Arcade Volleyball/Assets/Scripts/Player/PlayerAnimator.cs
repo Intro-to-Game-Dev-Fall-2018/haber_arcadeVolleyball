@@ -1,17 +1,20 @@
 ﻿using UnityEngine;
 
+
 public class PlayerAnimator : MonoBehaviour
 {
 
-	public int FramesPerSprite = 12;
-	public Sprite GroundSprite2;
-	public Sprite GroundSprite1;
-	public Sprite JumpSprite;
+	public SpriteSet Sprites;
 	
 	private PlayerMotor _motor;
 	private SpriteRenderer _renderer;
 	private int _lastSpriteChange;
 	private bool _activeSprite;
+
+	public void SetColor(Color color)
+	{
+		_renderer.color = color;
+	}
 	
 	private void Start ()
 	{
@@ -19,15 +22,16 @@ public class PlayerAnimator : MonoBehaviour
 		_motor = GetComponentInParent<PlayerMotor>();
 	}
 	
+	
 	private void Update()
 	{
-		if (_motor.Walking() && Time.frameCount > _lastSpriteChange + FramesPerSprite)
+		if (_motor.Walking() && Time.frameCount > _lastSpriteChange + Sprites.FramesPerSprite)
 		{
 			_lastSpriteChange = Time.frameCount;
 			_activeSprite = !_activeSprite;
 		}
 
-		if (!_motor.Grounded()) _renderer.sprite = JumpSprite;
-		else _renderer.sprite = _activeSprite ? GroundSprite1 : GroundSprite2;
+		if (!_motor.Grounded()) _renderer.sprite = Sprites.JumpSprite;
+		else _renderer.sprite = _activeSprite ? Sprites.GroundSprite1 : Sprites.GroundSprite2;
 	}
 }

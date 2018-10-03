@@ -9,16 +9,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 035af1fe9cd2f41f195ca316cc2a6047, type: 3}
-  m_Name: Skin_Mono
+  m_Name: Skin_ColdWar
   m_EditorClassIdentifier: 
-  Name: Mono
-  PlayerSprite: {fileID: 21300000, guid: 460028798b73f4ecbad3924cb98389c1, type: 3}
-  P1A: {r: 1, g: 1, b: 1, a: 1}
-  P1B: {r: 1, g: 1, b: 1, a: 1}
-  P2A: {r: 1, g: 1, b: 1, a: 1}
-  P2B: {r: 1, g: 1, b: 1, a: 1}
+  Name: Cold War
+  PlayerSprite: {fileID: 11400000, guid: de700c92b03684e799cab4c76f098e60, type: 2}
+  P1A: {r: 0, g: 0, b: 1, a: 1}
+  P1B: {r: 0, g: 0, b: 1, a: 1}
+  P2A: {r: 1, g: 1, b: 0, a: 1}
+  P2B: {r: 1, g: 1, b: 0, a: 1}
   BackgroundSprite: {fileID: 21300000, guid: 336c25e62f83944a48372f7308865ef6, type: 3}
-  BackgroundColor: {r: 0, g: 0, b: 0, a: 1}
+  BackgroundColor: {r: 1, g: 0, b: 0, a: 1}
   BallSprite: {fileID: 21300000, guid: 7364538ac220b400ebe033c0d3440b94, type: 3}
   BallColor: {r: 1, g: 1, b: 1, a: 1}
   TitleColor: {r: 1, g: 1, b: 1, a: 1}

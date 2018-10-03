@@ -12,12 +12,10 @@ public class ComputerController : MonoBehaviour
 	private PlayerMotor _motor;
 	private float _direction;
 	private Vector3 _defaultPosition;
-	private Random _rand;
 	
 	private void Start () {
 		_motor = GetComponent<PlayerMotor>();
 		_defaultPosition = transform.position;
-		_rand = new Random();
 	}
 	
 	private void Update ()
@@ -31,10 +29,10 @@ public class ComputerController : MonoBehaviour
 
 		_direction = _ball.position.x - transform.position.x;
 
-		if (_ball.position.y <= -1.4f)
+		if (_ball.position.y <= -1.5f)
 		{
 			_motor.Jump();
-			_direction = _rand.Next(1) == 0 ? 1 : -1;
+			_direction = transform.position.x > 1.5 ? 1 : -1;
 
 		}
 		

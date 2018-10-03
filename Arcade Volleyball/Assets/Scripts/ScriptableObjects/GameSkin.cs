@@ -5,9 +5,9 @@ public class GameSkin : ScriptableObject
 {
 	[Header("General")]
 	public string Name;
-	
-	[Header("Player")]
-	public Sprite PlayerSprite;
+
+	[Header("Player")] 
+	public SpriteSet PlayerSprite;
 	public Color P1A;
 	public Color P1B;
 	public Color P2A;
