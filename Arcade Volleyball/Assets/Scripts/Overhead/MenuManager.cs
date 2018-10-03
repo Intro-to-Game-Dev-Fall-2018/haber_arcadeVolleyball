@@ -1,9 +1,8 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using TMPro;
+using UnityEngine;
 
-public class MenuFunc : MonoBehaviour
+public class MenuManager : MonoBehaviour
 {
-
     private GameManager _gm;
     private GameObject _menu;
 

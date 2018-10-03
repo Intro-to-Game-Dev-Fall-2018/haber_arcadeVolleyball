@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 	{
 		instructions.gameObject.SetActive(true);
 		winText.text = "";
-		_p1Score=_p2Score = 00;
+		_p1Score = _p2Score = 00;
 		UpdateScore();
 	}
 

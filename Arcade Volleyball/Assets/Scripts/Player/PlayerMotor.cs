@@ -47,6 +47,6 @@ public class PlayerMotor : MonoBehaviour
 	
 	public bool Walking()
 	{
-		return Math.Abs(_move) > 0;
+		return _move * _move > 0;
 	}
 }
