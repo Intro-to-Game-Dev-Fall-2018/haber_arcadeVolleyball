@@ -13,9 +13,6 @@ public class GameManager : MonoBehaviour
 	public Canvas Menu;
 	public Canvas instructions;
 	[SerializeField] private AudioManager _audio;
-	
-	[Header("Settings")]
-	[SerializeField] private int winCondition = 11;
 
 	private int _p1Score;
 	private int _p2Score;
@@ -54,7 +51,7 @@ public class GameManager : MonoBehaviour
 
 	public void P1Score()
 	{
-		if ((_p1Score += 1) >= winCondition)
+		if ((_p1Score += 1) >= Settings.s.WinScore)
 			win("Player 1 wins");
 		else
 			StartScoreEffect(_ball.P1.position);
@@ -62,7 +59,7 @@ public class GameManager : MonoBehaviour
 	
 	public void P2Score()
 	{
-		if ((_p2Score += 1) >= winCondition)
+		if ((_p2Score += 1) >= Settings.s.WinScore)
 			win("Player 2 wins");
 		else
 			StartScoreEffect(_ball.P2.position);
