@@ -22,6 +22,7 @@ public class ComputerController : MonoBehaviour
 		if (_ball.position.x <= 0)
 		{
 			_direction = Mathf.Clamp(_defaultPosition.x - transform.position.x,-1f,1f);
+			if (_direction < .1) _direction = 0;
 			_motor.Move(_direction);
 			return;
 		}
