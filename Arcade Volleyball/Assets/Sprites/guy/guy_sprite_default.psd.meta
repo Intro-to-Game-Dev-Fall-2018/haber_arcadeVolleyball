@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8dd301ef43e4a4da88aee1bfb7ab2e94
+guid: 460028798b73f4ecbad3924cb98389c1
 TextureImporter:
   fileIDToRecycleName:
-    21300000: guy_sprite_beach_0
-    21300002: guy_sprite_beach_1
-    21300004: guy_sprite_beach_2
+    21300000: guy_sprite_0
+    21300002: guy_sprite_1
+    21300004: guy_sprite_2
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -98,7 +98,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: guy_sprite_beach_0
+      name: guy_sprite_0
       rect:
         serializedVersion: 2
         x: 0
@@ -112,13 +112,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afeea128647c24f169753f4b917af3ab
+      spriteID: 9cb8536a4369642e1867895dc5d18bf0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: guy_sprite_beach_1
+      name: guy_sprite_1
       rect:
         serializedVersion: 2
         x: 256
@@ -132,13 +132,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f46fc6fb556147759934160ea544439
+      spriteID: 7bc0b2e130d7c432aa2a9f9ea3ca3825
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: guy_sprite_beach_2
+      name: guy_sprite_2
       rect:
         serializedVersion: 2
         x: 0
@@ -152,7 +152,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7b96f0ceb7624183a2d8abd383fb261
+      spriteID: 660458d3f424948799e53759d6f011fd
       vertices: []
       indices: 
       edges: []
@@ -160,7 +160,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: fea9a7fc1759e4c4c8ff71c7328773e7
+    spriteID: 46158d30f6d414b3fa5d940a34536ec4
     vertices: []
     indices: 
     edges: []

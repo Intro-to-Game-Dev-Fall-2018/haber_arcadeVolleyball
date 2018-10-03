@@ -110,10 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab6757f0fc724320a1805f0b6f1f9b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FramesPerSprite: 12
-  GroundSprite2: {fileID: 21300004, guid: 460028798b73f4ecbad3924cb98389c1, type: 3}
-  GroundSprite1: {fileID: 21300002, guid: 460028798b73f4ecbad3924cb98389c1, type: 3}
-  JumpSprite: {fileID: 21300000, guid: 460028798b73f4ecbad3924cb98389c1, type: 3}
+  Sprites: {fileID: 0}
 --- !u!212 &212016302027760860
 SpriteRenderer:
   m_ObjectHideFlags: 1
