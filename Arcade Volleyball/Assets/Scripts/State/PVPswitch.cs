@@ -24,6 +24,7 @@ public class PVPswitch : MonoBehaviour
 	{
 		if (pvp)
 		{
+			computer.activate();
 			computer.enabled = false;
 			player.enabled = true;
 			text.text = "PVP";
@@ -32,6 +33,7 @@ public class PVPswitch : MonoBehaviour
 		{
 			computer.enabled = true;
 			player.enabled = false;
+			computer.activate();
 			text.text = "NPC";
 		}
 

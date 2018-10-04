@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMotor : MonoBehaviour
 {
@@ -47,6 +44,6 @@ public class PlayerMotor : MonoBehaviour
 	
 	public bool Walking()
 	{
-		return _move * _move > 0f;
+		return _move != 0f;
 	}
 }

@@ -5,7 +5,8 @@ public enum STATE
 {
 	RESET = 0,
 	PLAY = 1,
-	SERVE = 3
+	SERVE = 3,
+	DEACTIVE = 4
 }
 
 public class ComputerController : MonoBehaviour
@@ -21,6 +22,12 @@ public class ComputerController : MonoBehaviour
 	private void Start () {
 		_motor = GetComponent<PlayerMotor>();
 		_defaultPosition = transform.position;
+		activate();
+	}
+
+	public void activate()
+	{
+		_state = STATE.DEACTIVE;
 	}
 
 	private void changeState(STATE newState)
@@ -74,10 +81,9 @@ public class ComputerController : MonoBehaviour
 
 	private IEnumerator serve()
 	{
-		_motor.Move(-.4f);
+		_motor.Move(-.1f);
 		yield return new WaitForSeconds(1.3f);
 		_motor.Move(-1f);
-		yield return new WaitForEndOfFrame();
 		_motor.Jump();
 	}
 
