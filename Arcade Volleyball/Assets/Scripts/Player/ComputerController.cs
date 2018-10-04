@@ -16,7 +16,7 @@ public class ComputerController : MonoBehaviour
 	
 	private PlayerMotor _motor;
 	private Vector3 _defaultPosition;
-	private STATE _state = STATE.RESET;
+	private STATE _state;
 
 	
 	private void Start () {
@@ -27,7 +27,7 @@ public class ComputerController : MonoBehaviour
 
 	public void activate()
 	{
-		_state = STATE.OFF;
+		changeState(STATE.OFF);
 	}
 
 	private void changeState(STATE newState)
@@ -48,10 +48,11 @@ public class ComputerController : MonoBehaviour
 				case STATE.SERVE:
 					StartCoroutine(serve());
 					return;
+				case STATE.OFF:
+					return;
 				default:
 					return;
 		}
-
 	}
 	
 	private void Update ()
@@ -71,12 +72,14 @@ public class ComputerController : MonoBehaviour
 		yield return new WaitForSeconds(.5f);
 		while (_state == STATE.PLAY)
 		{
-			_motor.Move(ballX());
+			_motor.Move(ballX()+ _ball.position.x > 4f ? -.5f: .5f);
 
 			if (_ball.position.y <= -1.5f)
 			{
-				_motor.Jump();
+				_motor.Move(_ball.position.x > 4f ? 1f: -1f);
+				if (_ball.velocity.y > 1f) _motor.Jump();
 			}
+			
 			
 			yield return null;
 		}
