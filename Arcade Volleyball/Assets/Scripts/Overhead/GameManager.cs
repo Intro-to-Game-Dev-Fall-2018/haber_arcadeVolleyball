@@ -92,7 +92,6 @@ public class GameManager : MonoBehaviour
 			Menu.gameObject.SetActive(false);
 			_paused = false;	
 		}
-
 	}
 	
 	private void Update ()
@@ -100,5 +99,4 @@ public class GameManager : MonoBehaviour
 		if (!Ball.isStill()) instructions.gameObject.SetActive(false);
 		if (Input.GetButtonDown("Menu")) PauseMenu();
 	}
-
 }

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 458fbe3c485124117a40b95df22f36c4, type: 3}
-  m_Name: Sprite_Princess
+  m_Name: Sprite_Bratz
   m_EditorClassIdentifier: 
   FramesPerSprite: 12
   GroundSprite1: {fileID: 21300002, guid: ac0ec5d16745e46049980bc2456a0882, type: 3}

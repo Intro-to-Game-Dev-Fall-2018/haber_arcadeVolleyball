@@ -32,7 +32,7 @@ public class PlayerMotor : MonoBehaviour
 
 	public void Move(float input)
 	{
-		_move = input;
+		_move = Mathf.Clamp(input,-1,1);
 	}
 	
 	public void Jump()
@@ -47,6 +47,6 @@ public class PlayerMotor : MonoBehaviour
 	
 	public bool Walking()
 	{
-		return _move * _move > 0;
+		return _move * _move > 0f;
 	}
 }

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 035af1fe9cd2f41f195ca316cc2a6047, type: 3}
-  m_Name: Skin_Roman
+  m_Name: skin_roman
   m_EditorClassIdentifier: 
   Name: Roman
   PlayerSprite: {fileID: 11400000, guid: 3b468bfc03f9d48dc8d9ca6af2b8961d, type: 2}
