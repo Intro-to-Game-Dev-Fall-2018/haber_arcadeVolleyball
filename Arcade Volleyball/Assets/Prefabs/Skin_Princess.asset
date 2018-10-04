@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Skin_Princess
   m_EditorClassIdentifier: 
   Name: Princess
-  PlayerSprite: {fileID: 11400000, guid: 3b468bfc03f9d48dc8d9ca6af2b8961d, type: 2}
+  PlayerSprite: {fileID: 11400000, guid: af6bb2e9a057b4f6182647939d120efb, type: 2}
   P1A: {r: 1, g: 1, b: 1, a: 1}
   P1B: {r: 1, g: 1, b: 1, a: 1}
   P2A: {r: 1, g: 1, b: 1, a: 1}
