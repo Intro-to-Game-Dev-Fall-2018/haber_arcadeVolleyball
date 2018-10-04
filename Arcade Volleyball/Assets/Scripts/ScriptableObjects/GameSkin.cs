@@ -8,21 +8,21 @@ public class GameSkin : ScriptableObject
 
 	[Header("Player")] 
 	public SpriteSet PlayerSprite;
-	public Color P1A;
-	public Color P1B;
-	public Color P2A;
-	public Color P2B;
+	public Color P1A = Color.white;
+	public Color P1B = Color.white;
+	public Color P2A = Color.white;
+	public Color P2B = Color.white;
 	
 	[Header("Background")]
 	public Sprite BackgroundSprite;
-	public Color BackgroundColor;
+	public Color BackgroundColor = Color.black;
 
 	[Header("Ball")] 
 	public Sprite BallSprite;
-	public Color BallColor;
+	public Color BallColor = Color.white;
 
 	[Header("GUI")] 
-	public Color TitleColor;
-	public Color ScoreColor;
+	public Color TitleColor = Color.blue;
+	public Color ScoreColor = Color.white;
 
 }

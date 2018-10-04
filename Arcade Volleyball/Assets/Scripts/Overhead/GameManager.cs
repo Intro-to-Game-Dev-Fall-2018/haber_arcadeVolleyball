@@ -10,8 +10,9 @@ public class GameManager : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI winText;
 	[SerializeField] private Canvas Menu;
 	[SerializeField] private Canvas instructions;
-	[SerializeField] private AudioManager _audio;
-	[SerializeField] private BallController _ball;
+	[SerializeField] private AudioManager Audio;
+	[SerializeField] private BallController Ball;
+	[SerializeField] private SkinManagerV2 Skins;
 	
 	private int _p1Score;
 	private int _p2Score;
@@ -30,48 +31,44 @@ public class GameManager : MonoBehaviour
 		_p1Score = _p2Score = 00;
 		UpdateScore();
 	}
-
-	public void unPause()
-	{
-		_paused = false;
-	}
 	
 	public void ResetGame()
 	{
 		Reset();
-		_ball.Reset();
+		Ball.Reset();
 	}
 
 	public void P1Score()
 	{
 		StartCoroutine((_p1Score += 1) >= Settings.s.WinScore ?
 			win("Player 1 wins") :
-			ScoreEffect(_ball.P1.position));
+			Score(Ball.P1.position));
 	}
 	
 	public void P2Score()
 	{
 		StartCoroutine((_p2Score += 1) >= Settings.s.WinScore ? 
 			win("Player 2 wins") : 
-			ScoreEffect(_ball.P2.position));
+			Score(Ball.P2.position));
 	}
 
-	private IEnumerator ScoreEffect(Vector3 nextServe)
+	private IEnumerator Score(Vector3 nextServe)
 	{
 		UpdateScore();
-		_audio.HitGround();
+		Audio.HitGround();
 		Time.timeScale = 0;
-		yield return new WaitForSecondsRealtime(1);
+		yield return new WaitForSecondsRealtime(Settings.s.WaitAfterScore);
 		if (!_paused) Time.timeScale = 1;
-		_ball.Serve(nextServe);
+		Ball.Serve(nextServe);
 	}
 
 	private IEnumerator win(string text)
 	{
-		_audio.Win();
-		StartCoroutine(ScoreEffect(new Vector3(0,100)));
+		Audio.Win();
+		StartCoroutine(Score(new Vector3(0,100)));
 		winText.text = text;
-		yield return new WaitForSecondsRealtime(5);
+		yield return new WaitForSecondsRealtime(Settings.s.WaitAfterWin);
+		Skins.SwitchSkin();
 		ResetGame();
 	}
 
@@ -81,19 +78,26 @@ public class GameManager : MonoBehaviour
 		P1Scorecard.text = _p1Score.ToString("D2");
 	}
 
-	private void PauseMenu()
+	public void PauseMenu()
 	{
-		Time.timeScale = 0;
-		Menu.gameObject.SetActive(true);
-		_paused = true;
+		if (!_paused)
+		{
+			Time.timeScale = 0;
+			Menu.gameObject.SetActive(true);
+			_paused = true;	
+		}
+		else
+		{
+			Time.timeScale = 1;
+			Menu.gameObject.SetActive(false);
+			_paused = false;	
+		}
+
 	}
 	
 	private void Update ()
 	{
-		if (!_ball.isStill()) instructions.gameObject.SetActive(false);
-		
-		else if (!_paused) Time.timeScale = 1;
-			
+		if (!Ball.isStill()) instructions.gameObject.SetActive(false);
 		if (Input.GetButtonDown("Menu")) PauseMenu();
 	}
 

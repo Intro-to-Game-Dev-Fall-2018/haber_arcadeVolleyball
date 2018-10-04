@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe6ac5d96c4d4fefaf7b79b0150880a, type: 3}
   m_Name: Settings_Fun
   m_EditorClassIdentifier: 
-  WinScore: 3
+  WinScore: 2
   MaxTouches: 4
   BallSpeed: 6
   BallGravity: -0.0003
@@ -19,3 +19,5 @@ MonoBehaviour:
   PlayerSpeed: 8
   PlayerJumpSpeed: 20
   GroundLevel: -3
+  WaitAfterScore: 1
+  WaitAfterWin: 5
