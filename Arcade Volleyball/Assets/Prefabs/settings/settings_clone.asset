@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: settings_clone
   m_EditorClassIdentifier: 
   WinScore: 11
-  MaxTouches: 4
+  MaxTouches: 3
   BallSpeed: 8
   BallGravity: -0.0001
   BallAcceleration: 0.001
@@ -21,3 +21,4 @@ MonoBehaviour:
   GroundLevel: -3
   WaitAfterScore: 1
   WaitAfterWin: 5
+  WaitBeforeServe: 1

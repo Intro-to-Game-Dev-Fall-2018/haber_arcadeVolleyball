@@ -70,13 +70,13 @@ public class BallController : MonoBehaviour
 		}
 		else if (other.gameObject.CompareTag("Player1"))
 		{
-			if ((_hitCount1 += 1) >= Settings.s.MaxTouches) Game.P2Score();
+			if ((_hitCount1 += 1) > Settings.s.MaxTouches) Game.P2Score();
 			_hitCount2 = 0;
 			_audio.Hit();
 		}
 		else if (other.gameObject.CompareTag("Player2"))
 		{
-			if ((_hitCount2 += 1) >= Settings.s.MaxTouches) Game.P1Score();
+			if ((_hitCount2 += 1) > Settings.s.MaxTouches) Game.P1Score();
 			_hitCount1 = 0;
 			_audio.Hit();
 		}

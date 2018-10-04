@@ -6,7 +6,7 @@ public enum STATE
 	RESET = 0,
 	PLAY = 1,
 	SERVE = 3,
-	DEACTIVE = 4
+	OFF = 4
 }
 
 public class ComputerController : MonoBehaviour
@@ -27,7 +27,7 @@ public class ComputerController : MonoBehaviour
 
 	public void activate()
 	{
-		_state = STATE.DEACTIVE;
+		_state = STATE.OFF;
 	}
 
 	private void changeState(STATE newState)
@@ -68,12 +68,15 @@ public class ComputerController : MonoBehaviour
 
 	private IEnumerator play()
 	{
+		yield return new WaitForSeconds(.5f);
 		while (_state == STATE.PLAY)
 		{
 			_motor.Move(ballX());
-			
+
 			if (_ball.position.y <= -1.5f)
+			{
 				_motor.Jump();
+			}
 			
 			yield return null;
 		}
@@ -81,8 +84,9 @@ public class ComputerController : MonoBehaviour
 
 	private IEnumerator serve()
 	{
-		_motor.Move(-.1f);
-		yield return new WaitForSeconds(1.3f);
+		yield return new WaitForSeconds(Settings.s.WaitBeforeServe);
+		_motor.Move(-1f);
+		yield return new WaitForSeconds(.1f);
 		_motor.Move(-1f);
 		_motor.Jump();
 	}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: settings_fun
   m_EditorClassIdentifier: 
   WinScore: 5
-  MaxTouches: 4
+  MaxTouches: 3
   BallSpeed: 6
   BallGravity: -0.0003
   BallAcceleration: 0.002
@@ -21,3 +21,4 @@ MonoBehaviour:
   GroundLevel: -3
   WaitAfterScore: 1
   WaitAfterWin: 5
+  WaitBeforeServe: 1
