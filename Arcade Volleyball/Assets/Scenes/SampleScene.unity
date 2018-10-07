@@ -1600,10 +1600,9 @@ MonoBehaviour:
   skins:
   - {fileID: 11400000, guid: ee2018f00ae1b4738b56e5b8abb0633f, type: 2}
   - {fileID: 11400000, guid: 9a5c1e586aee04dec8ab87ef3ab0d4f2, type: 2}
-  - {fileID: 11400000, guid: 23bf851c3dd7d44e691499d982f54760, type: 2}
+  - {fileID: 11400000, guid: d86ff458e4af34640befb3c91bf1617b, type: 2}
   - {fileID: 11400000, guid: 0018e402a38d94214971901b2d7b0d77, type: 2}
   - {fileID: 11400000, guid: b18d1d73df924496487f27252e7b6629, type: 2}
-  - {fileID: 11400000, guid: d86ff458e4af34640befb3c91bf1617b, type: 2}
 --- !u!4 &833635864
 Transform:
   m_ObjectHideFlags: 0

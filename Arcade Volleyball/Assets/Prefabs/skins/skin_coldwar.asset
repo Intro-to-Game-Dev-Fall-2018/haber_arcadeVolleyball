@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Name: skin_coldwar
   m_EditorClassIdentifier: 
   Name: Cold War
-  PlayerSprite: {fileID: 11400000, guid: de700c92b03684e799cab4c76f098e60, type: 2}
-  P1A: {r: 0, g: 0, b: 1, a: 1}
+  PlayerSprite: {fileID: 11400000, guid: 6357486a4efe74a07b87d01b3d900e08, type: 2}
+  P1A: {r: 0.043137256, g: 0.14117648, b: 0.9843138, a: 1}
   P1B: {r: 0, g: 0, b: 1, a: 1}
   P2A: {r: 1, g: 1, b: 0, a: 1}
   P2B: {r: 1, g: 1, b: 0, a: 1}
-  BackgroundSprite: {fileID: 21300000, guid: 336c25e62f83944a48372f7308865ef6, type: 3}
-  BackgroundColor: {r: 1, g: 0, b: 0, a: 1}
-  BallSprite: {fileID: 21300000, guid: 7364538ac220b400ebe033c0d3440b94, type: 3}
+  BackgroundSprite: {fileID: 21300000, guid: 2c832f7c3d4e649e7916d68c76e8b950, type: 3}
+  BackgroundColor: {r: 0.6226415, g: 0.1262905, b: 0.1262905, a: 1}
+  BallSprite: {fileID: 21300000, guid: a918d423beb64439885e6cf6e89dc70c, type: 3}
   BallColor: {r: 1, g: 1, b: 1, a: 1}
-  TitleColor: {r: 1, g: 1, b: 1, a: 1}
-  ScoreColor: {r: 1, g: 1, b: 1, a: 1}
+  TitleColor: {r: 0.72156864, g: 0.7176471, b: 0.72156864, a: 1}
+  ScoreColor: {r: 0.72156864, g: 0.7176471, b: 0.72156864, a: 1}
