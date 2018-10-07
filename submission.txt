@@ -1,9 +1,19 @@
 Arcade Volleyball
+By Ben Haber
 
-Player 1
-A+D = move
-Z = jump
 
-Left+Right = move
-Z = jump
+Player 1	Player 2
+A+D = move	Left+Right = move
+Z = jump	Z = jump
+
+
+Itch.io: 
+Github:
+
+
+Self eval:
+	Since this was my first Unity project, I made many mistakes in the beginning that I had to clean up later on. For example, without knowledge of scriptableObjects or Coroutines, I ended up writing a lot of trashy code to accomplish what these tools are meant to do, and having to go back and fix it later on. However, doing this taught me a lot about good programming practices in Unity and how they differ from other languages that I am used to working with.
+	Since I got the game working like the reference emulator by week 2, I wanted to experiment with additions that would teach me to be a better Unity programmer. Adding skins was my favorite exercise because I got to play with more than one different look for the game. The possibilities for skins are limitless and they were cute and fun to make. 
+	The hardest challenge for me was definitely programming the play style of the AI. At first, I had it match the X position of the ball but that felt robotic and was not fun to play against. The current Ai is implemented using a simple decision tree based on the balls position and velocity, and I hope that the result is more entertaining to play against.
+	Overall I am happy with the game. I've played it against many of my friends and they all seem to like it as well. It feels like a classic arcade game: it is simple enough for anyone to play and entertaining enough for people to play more than once. Within the context of this project, I feel as though I have accomplished everything I would have liked to.
 
