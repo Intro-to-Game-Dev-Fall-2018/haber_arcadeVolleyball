@@ -19,10 +19,11 @@ public class ComputerController : MonoBehaviour
 	private STATE _state;
 
 	//variables for AI
+	//TODO: make these respond to ball movement
 	private const float _yThresh = 1;
 	private const float _xMidPoint = 4;
+	private const float _hitStrength = 1;
 	private float _hitHeight = -1f;
-	private float _hitStrength;
 	private float _xLead;
 	
 
@@ -94,7 +95,6 @@ public class ComputerController : MonoBehaviour
 			else
 			{
 				//assign hit strength inverse to ball speed
-				_hitStrength = 1;
 				_xLead = _ball.velocity.x/2;
 				_hitHeight = -1.5f;
 				
@@ -152,7 +152,13 @@ public class ComputerController : MonoBehaviour
 						//ball is in hitting range
 						if (_ball.position.y <= _hitHeight)
 						{
-				
+							//ball is in hitting range
+							if (_ball.position.y <= _hitHeight)
+							{
+								_motor.Move(_hitStrength);
+								_motor.Jump();
+								_motor.Move(_hitStrength);
+							}
 						}
 					}
 					
