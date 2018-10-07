@@ -18,8 +18,8 @@ MonoBehaviour:
   P2A: {r: 1, g: 1, b: 1, a: 1}
   P2B: {r: 1, g: 1, b: 1, a: 1}
   BackgroundSprite: {fileID: 21300000, guid: a6f415a597e9148879669df431753c80, type: 3}
-  BackgroundColor: {r: 0.8117647, g: 0, b: 0.7687216, a: 1}
+  BackgroundColor: {r: 0.8867924, g: 0.6901922, b: 0.85088086, a: 1}
   BallSprite: {fileID: 21300000, guid: 7364538ac220b400ebe033c0d3440b94, type: 3}
-  BallColor: {r: 0, g: 0.9906864, b: 1, a: 1}
-  TitleColor: {r: 0.17254902, g: 0.9921569, b: 0.9960785, a: 1}
-  ScoreColor: {r: 0.24705884, g: 0.9921569, b: 0.9921569, a: 1}
+  BallColor: {r: 0.9716981, g: 0.92021245, b: 0.31626022, a: 1}
+  TitleColor: {r: 0.9686275, g: 0.91372555, b: 0.36862746, a: 1}
+  ScoreColor: {r: 0.96470594, g: 0.9058824, b: 0.41176474, a: 1}

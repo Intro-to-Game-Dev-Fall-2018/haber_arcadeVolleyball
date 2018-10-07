@@ -4,9 +4,8 @@ using UnityEngine;
 public enum STATE
 {
 	RESET = 0,
-	PLAY1 = 1,
-	PLAY2 = 2,
-	SERVE = 4,
+	PLAY = 2,
+	SERVE = 3,
 	OFF = 5
 }
 
@@ -19,7 +18,14 @@ public class ComputerController : MonoBehaviour
 	private Vector3 _defaultPosition;
 	private STATE _state;
 
+	//variables for AI
+	private const float _yThresh = 1;
+	private const float _xMidPoint = 4;
+	private float _hitHeight = -1f;
+	private float _hitStrength;
+	private float _xLead;
 	
+
 	public void activate()
 	{
 		changeState(STATE.OFF);
@@ -43,11 +49,8 @@ public class ComputerController : MonoBehaviour
 				case STATE.RESET:
 					StartCoroutine(goHome());
 					return;
-				case STATE.PLAY1:
-					StartCoroutine(play1());
-					return;
-				case STATE.PLAY2:
-					StartCoroutine(Play2());
+				case STATE.PLAY:
+					StartCoroutine(Play());
 					return;
 				case STATE.SERVE:
 					StartCoroutine(serve());
@@ -63,44 +66,103 @@ public class ComputerController : MonoBehaviour
 	{
 		if (_ball.position.x <= 0f)
 			changeState(STATE.RESET);
-		
 		else if (_ball.velocity.magnitude == 0f)
 			changeState(STATE.SERVE);
-		
 		else if (_ball.position.x > 0f) 
-			changeState(STATE.PLAY1);
+			changeState(STATE.PLAY);
 	}
 
-	private IEnumerator play1()
+	private IEnumerator Play()
 	{
-		yield return new WaitForSeconds(.5f);
-		while (_state == STATE.PLAY1)
+		yield return new WaitForSeconds(.2f);
+		while (_state == STATE.PLAY)
 		{
-			_motor.Move(ballX()+ _ball.position.x > 4f ? -.5f: .5f);
-
-			if (_ball.position.y <= -1.5f)
+			//ball is going up
+			if (_ball.velocity.y > 0)
 			{
-				_motor.Move(_ball.position.x > 4f ? 1f: -1f);
-				if (_ball.velocity.y > 1f) _motor.Jump();
+				_motor.Move(_defaultPosition.x - transform.position.x);
+				yield return null;
 			}
 			
-			yield return null;
-		}
-	}
-
-	private IEnumerator Play2()
-	{
-		yield return new WaitForSeconds(.5f);
-		while (_state == STATE.PLAY1)
-		{
-			_motor.Move(ballX()+ _ball.position.x > 4f ? -.5f: .5f);
-
-			if (_ball.position.y <= -1.5f)
+			//ball is in top half of screen
+			else if (_ball.position.y > _yThresh)
 			{
-				_motor.Move(_ball.position.x > 4f ? 1f: -1f);
-				if (_ball.velocity.y > 1f) _motor.Jump();
+				_motor.Move(ballX());
 			}
 			
+			//ball is going down and on bottom half
+			else
+			{
+				//assign hit strength inverse to ball speed
+				_hitStrength = 1;
+				_xLead = _ball.velocity.x/2;
+				_hitHeight = -1.5f;
+				
+				//ball is going right
+				if (_ball.velocity.x > 0)
+				{
+					//ball is on right side
+					if (_ball.position.x > _xMidPoint)
+					{
+						_motor.Move(ballX());
+						
+						//ball is in hitting range
+						if (_ball.position.y <= _hitHeight)
+						{
+							_motor.Move(-_hitStrength);
+							_motor.Jump();
+							_motor.Move(-_hitStrength);
+						}
+					}
+					//ball is on left side
+					else
+					{
+						_motor.Move(ballX()+_xLead);
+						
+						//ball is in hitting range
+						if (_ball.position.y <= _hitHeight)
+						{
+							_motor.Move(_hitStrength);
+							_motor.Jump();
+							_motor.Move(_hitStrength);
+						}
+					}
+				}
+				//ball is going left
+				else
+				{
+					//ball is on right side
+					if (_ball.position.x > _xMidPoint)
+					{
+						_motor.Move(ballX()+_xLead);
+						
+						//ball is in hitting range
+						if (_ball.position.y <= _hitHeight)
+						{
+							_motor.Move(-_hitStrength);
+							_motor.Jump();
+							_motor.Move(-_hitStrength);
+						}
+					}
+					//ball is on left side
+					else
+					{
+						_motor.Move(ballX());
+						
+						//ball is in hitting range
+						if (_ball.position.y <= _hitHeight)
+						{
+				
+						}
+					}
+					
+					//ball is in hitting range
+					if (_ball.position.y <= _hitHeight)
+					{
+						_motor.Jump();
+					}
+				}
+			}
 			yield return null;
 		}
 	}
@@ -119,11 +181,10 @@ public class ComputerController : MonoBehaviour
 		while (_state == STATE.RESET)
 		{
 			_motor.Move(distanceHome());
-			if (distanceHome() == 0f)
-				yield break;
+			if (distanceHome() <= .2f)
+				_motor.Move(0f);
 			yield return null;
 		}
-		_motor.Move(0f);
 	}
 
 	private float ballX()

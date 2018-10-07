@@ -1600,9 +1600,9 @@ MonoBehaviour:
   skins:
   - {fileID: 11400000, guid: ee2018f00ae1b4738b56e5b8abb0633f, type: 2}
   - {fileID: 11400000, guid: 9a5c1e586aee04dec8ab87ef3ab0d4f2, type: 2}
-  - {fileID: 11400000, guid: d86ff458e4af34640befb3c91bf1617b, type: 2}
-  - {fileID: 11400000, guid: 0018e402a38d94214971901b2d7b0d77, type: 2}
   - {fileID: 11400000, guid: b18d1d73df924496487f27252e7b6629, type: 2}
+  - {fileID: 11400000, guid: 0018e402a38d94214971901b2d7b0d77, type: 2}
+  - {fileID: 11400000, guid: eca555c16bb574d46b758bd8264ac06f, type: 2}
 --- !u!4 &833635864
 Transform:
   m_ObjectHideFlags: 0
@@ -2214,7 +2214,7 @@ MonoBehaviour:
   m_text: 'player 2
 
 
-    move: left+right
+    move: left + right
 
     jump: shift
 
@@ -2287,9 +2287,9 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1290598761}
-    characterCount: 39
+    characterCount: 41
     spriteCount: 0
-    spaceCount: 7
+    spaceCount: 9
     wordCount: 7
     linkCount: 0
     lineCount: 4
@@ -3616,7 +3616,7 @@ MonoBehaviour:
 
     move: A+D
 
-    jump: Z
+    jump: W
 
 '
   m_isRightToLeft: 0
