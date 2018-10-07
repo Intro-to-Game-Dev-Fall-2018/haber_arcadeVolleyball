@@ -4,9 +4,10 @@ using UnityEngine;
 public enum STATE
 {
 	RESET = 0,
-	PLAY = 1,
-	SERVE = 3,
-	OFF = 4
+	PLAY1 = 1,
+	PLAY2 = 2,
+	SERVE = 4,
+	OFF = 5
 }
 
 public class ComputerController : MonoBehaviour
@@ -19,15 +20,15 @@ public class ComputerController : MonoBehaviour
 	private STATE _state;
 
 	
+	public void activate()
+	{
+		changeState(STATE.OFF);
+	}
+	
 	private void Start () {
 		_motor = GetComponent<PlayerMotor>();
 		_defaultPosition = transform.position;
 		activate();
-	}
-
-	public void activate()
-	{
-		changeState(STATE.OFF);
 	}
 
 	private void changeState(STATE newState)
@@ -42,8 +43,11 @@ public class ComputerController : MonoBehaviour
 				case STATE.RESET:
 					StartCoroutine(goHome());
 					return;
-				case STATE.PLAY:
-					StartCoroutine(play());
+				case STATE.PLAY1:
+					StartCoroutine(play1());
+					return;
+				case STATE.PLAY2:
+					StartCoroutine(Play2());
 					return;
 				case STATE.SERVE:
 					StartCoroutine(serve());
@@ -64,13 +68,13 @@ public class ComputerController : MonoBehaviour
 			changeState(STATE.SERVE);
 		
 		else if (_ball.position.x > 0f) 
-			changeState(STATE.PLAY);
+			changeState(STATE.PLAY1);
 	}
 
-	private IEnumerator play()
+	private IEnumerator play1()
 	{
 		yield return new WaitForSeconds(.5f);
-		while (_state == STATE.PLAY)
+		while (_state == STATE.PLAY1)
 		{
 			_motor.Move(ballX()+ _ball.position.x > 4f ? -.5f: .5f);
 
@@ -80,11 +84,27 @@ public class ComputerController : MonoBehaviour
 				if (_ball.velocity.y > 1f) _motor.Jump();
 			}
 			
-			
 			yield return null;
 		}
 	}
 
+	private IEnumerator Play2()
+	{
+		yield return new WaitForSeconds(.5f);
+		while (_state == STATE.PLAY1)
+		{
+			_motor.Move(ballX()+ _ball.position.x > 4f ? -.5f: .5f);
+
+			if (_ball.position.y <= -1.5f)
+			{
+				_motor.Move(_ball.position.x > 4f ? 1f: -1f);
+				if (_ball.velocity.y > 1f) _motor.Jump();
+			}
+			
+			yield return null;
+		}
+	}
+	
 	private IEnumerator serve()
 	{
 		yield return new WaitForSeconds(Settings.s.WaitBeforeServe);
@@ -99,15 +119,11 @@ public class ComputerController : MonoBehaviour
 		while (_state == STATE.RESET)
 		{
 			_motor.Move(distanceHome());
-
 			if (distanceHome() == 0f)
-			{
-				_motor.Move(0f);
 				yield break;
-			}
-			
 			yield return null;
 		}
+		_motor.Move(0f);
 	}
 
 	private float ballX()

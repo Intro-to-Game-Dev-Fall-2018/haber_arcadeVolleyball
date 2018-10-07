@@ -1,0 +1,9 @@
+Arcade Volleyball
+
+Player 1
+A+D = move
+Z = jump
+
+Left+Right = move
+Z = jump
+

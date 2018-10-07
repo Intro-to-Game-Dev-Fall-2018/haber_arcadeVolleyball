@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,8 +21,6 @@ public class SkinManagerV2 : MonoBehaviour
 	[SerializeField] private GameSkin[] skins;
 
 	private int _current;
-	
-	
 	
 	private void Start()
 	{
