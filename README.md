@@ -1,8 +1,10 @@
 # haber_arcadeVolleyball
-https://jaminhaber.itch.io/arcade-volleyball
+twist: https://jaminhaber.itch.io/arcade-volleyball
+
+clone: https://jaminhaber.itch.io/arcade-volleyball-clone
 
 ## Controls
-Player 1: A+D+Z
+Player 1: A+D+W
 
 Player 2: Left+Right+Shift
 
