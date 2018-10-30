@@ -14,20 +14,9 @@ public class Settings : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-        if (Settings.instance == null)
-        {
-            Settings.instance = this;
-        }
-        
-        else
-        {
-            Debug.LogWarning("A previously awakened Settings MonoBehaviour exists!", gameObject);
-        }
-
-        if (Settings.s == null)
-        {
-            Settings.s = _settings;
-        }
+        if (instance == null)
+            instance = this;
+        if (s == null)
+            s = _settings;
     }
 }

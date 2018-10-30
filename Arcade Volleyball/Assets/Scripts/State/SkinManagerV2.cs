@@ -49,4 +49,5 @@ public class SkinManagerV2 : MonoBehaviour
 		SceneCamera.backgroundColor = skin.BackgroundColor;
 		text.text = skin.Name.ToUpper();
 	}
+
 }
