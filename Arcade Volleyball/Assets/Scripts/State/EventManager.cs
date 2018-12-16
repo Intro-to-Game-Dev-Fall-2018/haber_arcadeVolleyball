@@ -1,30 +1,25 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class EventManager : MonoBehaviour {
+public class OnScoreEvent : UnityEvent<GameState> {}
+public class OnSkinChangedEvent : UnityEvent<GameSkin> {}
 
-	public static event Action onGameOver;
-	public static event Action onScore;
-	public static event Action<GameSkin> onSkinChanged = skin => { };
-
-	public static void ChangeSkin(GameSkin skin)
-	{
-		onSkinChanged(skin);
-	}
-
-	public static void GameOver()
-	{
-		onGameOver();
-	}
-
-	public static void Score()
-	{
-		onScore();
-	}
-
-	public static void Reset()
-	{
-		
-	}
+public class EventManager : MonoBehaviour
+{
+	public static EventManager i;
 	
+	public event Action onGameOver;
+	public OnScoreEvent onScore;
+	public OnSkinChangedEvent onSkinChanged;
+
+	
+	private void Awake()
+	{
+		if (i == null) i = this;
+		else Destroy(gameObject);
+		
+		onScore = new OnScoreEvent();
+		onSkinChanged = new OnSkinChangedEvent();
+	}
 }

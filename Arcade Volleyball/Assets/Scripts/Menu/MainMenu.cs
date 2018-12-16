@@ -1,20 +1,26 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour {
+public class MainMenu : MonoBehaviour
+{
 
-	public void StartGame()
+	[Header("Buttons")]
+	[SerializeField] private Button _startButton;
+	[SerializeField] private Button _pvpButton;
+
+	private void Awake()
 	{
-		StartCoroutine(LoadGame());
-	}
+		_startButton.onClick.AddListener(()=>StartCoroutine(LoadGame()));
 	
+	}
+
 	private IEnumerator LoadGame()
 	{
 		yield return new WaitForSeconds(.1f);
-		var op = SceneManager.LoadSceneAsync("Volleyball", LoadSceneMode.Additive);
+		AsyncOperation op = SceneManager.LoadSceneAsync("Volleyball", LoadSceneMode.Additive);
+		while (!op.isDone) yield return new WaitForEndOfFrame();
 		SceneManager.UnloadSceneAsync("Menu");
-		yield return op;
 	}
 }
