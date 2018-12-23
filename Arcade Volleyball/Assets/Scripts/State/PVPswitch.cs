@@ -9,14 +9,22 @@ public class PVPswitch : MonoBehaviour
 
 	private ComputerController computer;
 	private PlayerController player;
-	private bool pvp;
+	private static bool pvp;
 	
 	private void Start ()
 	{
-		computer = Player2.GetComponent<ComputerController>();
-		player = Player2.GetComponent<PlayerController>();
+		if (Player2 != null)
+		{
+			computer = Player2.GetComponent<ComputerController>();
+			player = Player2.GetComponent<PlayerController>();
+		}
 
-		pvp = true;
+		PVPSwitch();
+	}
+
+	public void Toggle()
+	{
+		pvp = !pvp;
 		PVPSwitch();
 	}
 
@@ -24,19 +32,20 @@ public class PVPswitch : MonoBehaviour
 	{
 		if (pvp)
 		{
+			text.text = "PVP";
+			if (Player2 == null) return;
 			computer.activate();
 			computer.enabled = false;
 			player.enabled = true;
-			text.text = "PVP";
 		}
 		else
 		{
+			text.text = "NPC";
+			if (Player2 == null) return;
+
 			computer.enabled = true;
 			player.enabled = false;
 			computer.activate();
-			text.text = "NPC";
 		}
-
-		pvp = !pvp;
 	}
 }

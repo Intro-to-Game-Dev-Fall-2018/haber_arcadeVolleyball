@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,12 +27,19 @@ public class SkinManagerV2 : MonoBehaviour
 	{
 		_current = 0;
 		SwitchSkin();
+		EventManager.i.onGameOver.AddListener(()=>StartCoroutine(delaySwitch()));
 	}
 
 	public void SwitchSkin()
 	{
 		_current = _current % skins.Length;
 		SwitchSkin(skins[_current++]);
+	}
+
+	private IEnumerator delaySwitch()
+	{
+		yield return new WaitForSecondsRealtime(Settings.s.WaitAfterWin);
+		SwitchSkin();
 	}
 	
 	private void SwitchSkin(GameSkin skin)

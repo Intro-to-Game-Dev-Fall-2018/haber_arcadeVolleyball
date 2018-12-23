@@ -2,17 +2,14 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class OnScoreEvent : UnityEvent<GameState> {}
-public class OnSkinChangedEvent : UnityEvent<GameSkin> {}
+[Serializable] public class OnScoreEvent : UnityEvent<GameState> {}
 
 public class EventManager : MonoBehaviour
 {
 	public static EventManager i;
 	
-	public event Action onGameOver;
+	public UnityEvent onGameOver;
 	public OnScoreEvent onScore;
-	public OnSkinChangedEvent onSkinChanged;
-
 	
 	private void Awake()
 	{
@@ -20,6 +17,6 @@ public class EventManager : MonoBehaviour
 		else Destroy(gameObject);
 		
 		onScore = new OnScoreEvent();
-		onSkinChanged = new OnSkinChangedEvent();
+		onGameOver = new UnityEvent();
 	}
 }
