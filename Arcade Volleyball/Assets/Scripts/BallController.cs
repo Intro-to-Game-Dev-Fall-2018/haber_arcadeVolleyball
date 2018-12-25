@@ -84,4 +84,9 @@ public class BallController : MonoBehaviour
 		_lastCollision = other.gameObject;
 	}
 
+	public string lastHit()
+	{
+		return _lastCollision.tag;
+	}
+
 }
