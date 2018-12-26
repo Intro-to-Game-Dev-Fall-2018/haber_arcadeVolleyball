@@ -19,4 +19,5 @@ public class EventManager : MonoBehaviour
 		onScore = new OnScoreEvent();
 		onGameOver = new UnityEvent();
 	}
+
 }

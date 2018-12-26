@@ -14,7 +14,7 @@ public class BallController : MonoBehaviour
 	private int _hitCount1;
 	private int _hitCount2;
 	private float _ballSpeed;
-
+	
 	private void Start ()
 	{
 		_rb2D = GetComponent<Rigidbody2D>();
