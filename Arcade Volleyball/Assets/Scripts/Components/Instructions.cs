@@ -14,6 +14,8 @@ public class Instructions : MonoBehaviour
 	}
 
 	private void Update () {
-		if (!_ball.isStill()) gameObject.SetActive(false);
+//		if (!_ball.isStill()) gameObject.SetActive(false);
+		if (!_ball.isStill()) Destroy(gameObject);
+
 	}
 }
