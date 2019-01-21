@@ -9,7 +9,7 @@ public class PVPswitch : MonoBehaviour
 
 	private ComputerController computer;
 	private PlayerController player;
-	private static bool pvp;
+	public static bool pvp;
 	
 	private void Start ()
 	{
@@ -19,20 +19,32 @@ public class PVPswitch : MonoBehaviour
 			player = Player2.GetComponent<PlayerController>();
 		}
 
-		PVPSwitch();
+		UpdateText();
+	}
+
+	public void SetPVP()
+	{
+		pvp = true;
+		UpdateText();
+	}
+	
+	public void SetPVE()
+	{
+		pvp = false;
+		UpdateText();
 	}
 
 	public void Toggle()
 	{
 		pvp = !pvp;
-		PVPSwitch();
+		UpdateText();
 	}
 
-	public void PVPSwitch()
+	private void UpdateText()
 	{
 		if (pvp)
 		{
-			text.text = "PVP";
+			if (text!=null) text.text = "PVP";
 			if (Player2 == null) return;
 			computer.activate();
 			computer.enabled = false;
@@ -40,7 +52,7 @@ public class PVPswitch : MonoBehaviour
 		}
 		else
 		{
-			text.text = "NPC";
+			if (text!=null) text.text = "NPC";
 			if (Player2 == null) return;
 
 			computer.enabled = true;

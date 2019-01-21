@@ -1964,6 +1964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ball: {fileID: 1770677034}
+  _p2Instructions: {fileID: 1290598759}
 --- !u!1 &891229466
 GameObject:
   m_ObjectHideFlags: 0
@@ -3217,7 +3218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1714188737
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4454,7 +4455,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Menu
+  m_Text: MENU
 --- !u!222 &2141895350
 CanvasRenderer:
   m_ObjectHideFlags: 0
