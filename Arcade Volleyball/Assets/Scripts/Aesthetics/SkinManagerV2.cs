@@ -25,7 +25,7 @@ public class SkinManagerV2 : MonoBehaviour
 	
 	private void Start()
 	{
-		_current = 0;
+		_current = Random.Range(0,skins.Length);
 		SwitchSkin();
 		EventManager.i.onGameOver.AddListener(()=>StartCoroutine(delaySwitch()));
 	}

@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 613520919}
   - component: {fileID: 613520918}
   - component: {fileID: 613520920}
+  - component: {fileID: 613520921}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -253,6 +254,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player2: {fileID: 0}
   text: {fileID: 0}
+--- !u!114 &613520921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613520917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d007041c44c4d4c38b50424e3ee4de4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BG: {fileID: 0}
+  Title: {fileID: 2098595473}
+  SceneCamera: {fileID: 1611538684}
+  _1Player: {fileID: 1016157918}
+  _2Player: {fileID: 1916818266}
+  skins:
+  - {fileID: 11400000, guid: eca555c16bb574d46b758bd8264ac06f, type: 2}
+  - {fileID: 11400000, guid: 0018e402a38d94214971901b2d7b0d77, type: 2}
+  - {fileID: 11400000, guid: 9a5c1e586aee04dec8ab87ef3ab0d4f2, type: 2}
+  - {fileID: 11400000, guid: ee2018f00ae1b4738b56e5b8abb0633f, type: 2}
+  - {fileID: 11400000, guid: b18d1d73df924496487f27252e7b6629, type: 2}
 --- !u!1 &757333309
 GameObject:
   m_ObjectHideFlags: 0
