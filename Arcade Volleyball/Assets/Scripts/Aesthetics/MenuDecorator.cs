@@ -22,14 +22,13 @@ public class MenuDecorator : MonoBehaviour
 	
     private void SetSkin(GameSkin skin)
     {
-//        BG.sprite = skin.BackgroundSprite;
+        BG.sprite = skin.BackgroundSprite;
         Title.color = skin.TitleColor;
         SceneCamera.backgroundColor = skin.BackgroundColor;
         _1Player.color = skin.P1A;
         _1Player.GetComponentInChildren<Text>().color = Color.black;
         _2Player.color = skin.P2A;
         _2Player.GetComponentInChildren<Text>().color = Color.black;
-
     }
 
     

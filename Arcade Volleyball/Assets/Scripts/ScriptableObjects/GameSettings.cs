@@ -18,6 +18,10 @@ public class GameSettings : ScriptableObject
 	public float PlayerJumpSpeed = 20f;
 	public float GroundLevel = -3f;
 
+	[Header("Physics Settings")]
+	public float CharacterSize = 1f;
+	public bool Effects = true;
+	
 	[Header("Time Settings")] 
 	public float WaitAfterScore = 1f;
 	public float WaitAfterWin = 5f;
